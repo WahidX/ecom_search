@@ -7,9 +7,9 @@ app.use(cors());
 
 const { graphqlHTTP } = require('express-graphql');
 
-// const db = require('./config/mongoose');
+// const db = require('./configs/mongoose');
 
-// const schema = require('./schema/schema');
+const schema = require('./schema/schema');
 
 app.get('/', (req, res) => {
   return res.json('Working!');
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 app.use(
   '/graphql',
   graphqlHTTP({
-    // schema,
+    schema,
     graphiql: true,
   })
 );
